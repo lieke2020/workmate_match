@@ -48,14 +48,14 @@ All files have been written and tested in Python 3.8, and make use of the module
 
 ## Files in this repository
 
-- main.py &rarr This file holds a short script to train a match network and visualise the performance
-- m_runner.py &rarr Functions to train phase 1: the match network
-- matchnet.py &rarr Architecture and learning rules match network 
-- workmate_match.py &rarr Architecture and learning rules RL agent
-- world.py &rarr Environment DMS task RL agent 				  		
-- stimuli.py &rarr Visual inputs used in DMS environment
-- tictoc.py &rarr Timing function
-- kaggle_feature.csv &rarr CIFAR-10 feature set extracted from Kaggle (Caleb Woy,	
+- main.py &rarr; This file holds a short script to train a match network and visualise the performance
+- m_runner.py &rarr; Functions to train phase 1: the match network
+- matchnet.py &rarr; Architecture and learning rules match network 
+- workmate_match.py &rarr; Architecture and learning rules RL agent
+- world.py &rarr; Environment DMS task RL agent 				  		
+- stimuli.py &rarr; Visual inputs used in DMS environment
+- tictoc.py &rarr; Timing function
+- kaggle_feature.csv &rarr; CIFAR-10 feature set extracted from Kaggle (Caleb Woy,	
 https://www.kaggle.com/whatsthevariance/pytorch-cnn-cifar10-68-70-test-accuracy)
-- poster.pdf &rarr Poster presented at ONWAR2021, Zeist
-- abstract.pdf &rarr Abstract submission CoSyNe 2022
+- poster.pdf &rarr; Poster presented at ONWAR2021, Zeist
+- abstract.pdf &rarr; Abstract submission CoSyNe 2022
