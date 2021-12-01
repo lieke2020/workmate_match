@@ -24,9 +24,9 @@ Agent (WorkMATe[1]) to Deep Learning. This enables the learning of memory repres
 of natural scenes (CIFAR-10 dataset) instead of short binary vectors. Secondly, research
 was done into neural mechanisms underlying matching between sensory and memory inputs.
 Results from an earlier neural comparator [2] were replicated and adapted to learn
-within the RL agent. It was found that two sequential phases of learning are needed 
+within the RL agent. It was found that two sequential phases of learning are needed: 
 1) A motor babbling phase where unsupervised learning self-organises the matching networks
-and 2) A reward driven phase that trains the agent to succesfully learn memory tasks
+2) A reward driven phase that trains the agent to succesfully learn memory tasks
 in an environment that needs matching. 
 
 [1]"Flexible Working Memory through Selective Gating and Attentional Tagging"
