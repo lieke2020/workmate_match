@@ -31,7 +31,7 @@ in an environment that needs matching.
 
 [1]"Flexible Working Memory through Selective Gating and Attentional Tagging"
 Wouter Kruijne, Sander M Bohte, Pieter R Roelfsema, Christian N L Olivers
-[2]"A self-organized neural comparator"
+<br> [2]"A self-organized neural comparator"
 Ludueña, G. A., & Gros, C. (2013). 
 
 ## Dependencies
