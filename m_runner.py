@@ -27,6 +27,11 @@ max_time = 15000         #max number of trials run
 
 #%% Run phase 1: Motor babbling
 
+def mean_std(buff):
+    m_avg = np.mean(buff,axis=0)
+    m_std = np.std(buff,axis=0)
+    return m_avg, m_std
+
 def matchnet_regression(m_out, trial_type):
     """Evaluation method: Perform logistic regression on the matchnet output 
     (m_out) with binary class labels (trial_type) and return score [0-1]"""
@@ -140,11 +145,6 @@ def plot_perf_match(perf_match_buff, i_conv_buff):
     
     nr_match = np.array(perf_match_buff).shape[1]
     nr_mem = np.array(perf_match_buff).shape[2]
-    
-    def mean_std(buff):
-        m_avg = np.mean(buff,axis=0)
-        m_std = np.std(buff,axis=0)
-        return m_avg, m_std
     
     x_array = np.arange(nr_match)*wiw+wiw 
     for i in range(nr_mem):

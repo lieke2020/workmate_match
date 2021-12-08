@@ -20,6 +20,7 @@ import workmate_match
 import world
 from matchnet import run_ncomp, plot_ncomp_eval
 from m_runner import run_match, plot_eval, plot_perf_match
+from w_runner import run_dms_match, plot_dms, plot_perf_DMS
 
 #%% Replication results Neural Comparator 
 
@@ -81,5 +82,42 @@ plot_perf_match(perf_match_buff, i_conv_buff)
 #m indicates the selected memory block
 #A cosine similarity of 1 indicates match trials
 plot_eval(val_buff, m=0) 
+
+#%% Phase 2: Reward-driven Learning
+
+#Run phase 1 for one agent --> get matchnets to use for each agent
+#This can be done as the matchnets are shown to converge to very similar networks
+agent = workmate_match.WorkMATe(dms, nblocks=n_mem)  
+agent, val_buff, i_conv_buff[i], perf_match = run_match(agent, dms) 
+matchnet = agent.matchnet
+#Turn off learning matching network
+for item in matchnet:
+    item.phase = 2  #when initialised, this is set to 1
+ 
+n = 5               #Number of agents trained
+pr = 'off'          #Printing settings: on or off
+st = 'cifar'        #Stimulus type: cifar (default) or alpha
+n_eval = 5          #Agent selected for evaluation example 
+
+iswi_buff = []      #Initialise buffer
+example_buff = []   #Save for the selected example agent
+
+for i in range(n):
+    #Run agents and save convergence per stimulus in buffer
+    dms, saved_p, iswi, agent, perf_match_dms = run_dms_match(matchnet, print_all = pr, stim_type = st)
+    iswi_buff.append(iswi)
+    
+    if n_eval == i: #Save specific data of the selected agent
+        example_buff = [dms, saved_p, agent, perf_match_dms]
+
+#EVALUATE TRAINING: Bar plot of trials needed to learn a level
+nr_conv = plot_perf_DMS(iswi_buff)
+#Only the converged agents are plotted
+print('{} of {} agents have converged on the task'.format(nr_conv, n))
+
+#EVALUATION EXAMPLE: Performance over trials
+plot_dms(saved_p,iswi)
+#Each dashed line represents a switch of the stimulus set used for training
+#Meta-learning is observed: Learning is faster after the task is learned on another set
 
 

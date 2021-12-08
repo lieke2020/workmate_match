@@ -112,7 +112,9 @@ class MatchNet(object):
         self.alpha_low = 3.5        #sigmoid slope for N < 400 !! this factor has a lot of influence
         self.alpha_high = 1.0       #sigmoid slope for N >= 400
         self.p_conn = 1             #probability of connectivity between layers of the network
-                                    #1 is fully connected
+        self.phase = 1              #Phase of learning
+                 
+                   #1 is fully connected
         #Define input size N
         if len(inp1) != len(inp2):
             raise Exception("The length of the two inputs is not the same")
@@ -141,6 +143,11 @@ class MatchNet(object):
         #Do a feedforward pass and compute the output by taking the max
         x2 = self.feedforward(x1)
         x2_out = max(x2)
+        
+        #Learning stabilises in the second reward-driven phases
+        if self.phase == 2:
+            return x2_out, x2
+        
         #Locally learn the weights using the Anti-hebbian learning rule
         self.feedback(x1, x2)
         return x2_out, x2
