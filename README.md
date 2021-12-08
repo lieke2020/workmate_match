@@ -49,8 +49,9 @@ All files have been written and tested in Python 3.8, and make use of the module
 ## Files in this repository
 
 - main.py &rarr; This file holds a short script to train a match network and visualise the performance
-- m_runner.py &rarr; Functions to train phase 1: the match network
-- matchnet.py &rarr; Architecture and learning rules match network 
+- m_runner.py &rarr; Functions to train phase 1: the match networ
+- matchnet.py &rarr; Architecture and learning rules match network
+- w_runner.py &arr; Functions to train phase 2: the RL agent 
 - workmate_match.py &rarr; Architecture and learning rules RL agent
 - world.py &rarr; Environment DMS task RL agent 				  		
 - stimuli.py &rarr; Visual inputs used in DMS environment
