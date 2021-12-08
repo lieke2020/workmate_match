@@ -60,3 +60,7 @@ All files have been written and tested in Python 3.8, and make use of the module
 https://www.kaggle.com/whatsthevariance/pytorch-cnn-cifar10-68-70-test-accuracy)
 - poster.pdf &rarr; Poster presented at ONWAR2021, Zeist
 - abstract.pdf &rarr; Abstract submission CoSyNe 2022
+
+## File structure
+
+![image](https://user-images.githubusercontent.com/71390417/145237082-9c3a523e-addf-4a85-b175-073e38b2f991.png)
